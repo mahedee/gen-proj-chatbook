@@ -1,0 +1,13 @@
+﻿@model List<FacebookClone.Models.Data.UserDTO>
+@{
+    ViewBag.Title = "ShowFriends";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul style="list-style: none">
+   @foreach (var friend in Model)
+   {
+     <li><a href="~/@friend.UserName"><img src="~/Uploads/@(friend.Id).jpg" style="width: 60px; margin: 5px"/>@(friend.FirstName +" " + friend.LastName)</a></li>
+   }
+</ul>
+

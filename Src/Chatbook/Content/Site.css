@@ -1,0 +1,247 @@
+﻿.loginform {
+    color: white !important;
+    position: relative;
+}
+.loginform label {
+    color: white !important;
+    
+}
+.loginform  div.form-group {
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+div.em {
+    position: absolute;
+    right: -330px;
+    bottom: -10px;
+    z-index: 1;
+    display: none;
+}
+.loginform {
+    position: relative;
+}
+.ajaxdiv {
+    position: absolute;
+    bottom: 30px;
+    right: -30px;
+}
+li.livesearchli {
+    position: relative;
+    padding: 10px;
+    width: 300px;
+    display: block;
+}
+input#searchtext {
+    position: relative;
+    margin-top: 7px;
+    margin-left: 100px;
+    padding: 5px 10px;
+    top: -5px;
+}
+li.livesearchli img {
+    width: 50px;
+}
+ul#livesearchul {
+    position: absolute;
+    background: black;
+    right: -10px;
+    top: 70px;
+    padding: 0;
+}
+    ul#livesearchul li.close,
+    ul#frnotiful li.close,
+    ul#msgnotiful li.close{
+        position: absolute;
+        color: white;
+        z-index: 10;
+        opacity: 1 !important;
+        right: 10px;
+        list-style: none;
+        top: 0;
+        cursor: pointer;
+    }
+.userimg img {
+    width: 200px;
+}
+li.name {
+    display: block;
+    color: white;
+    margin: 0 10px;
+    margin-top: 15px;
+}
+span.frnotif {
+    color: white;
+}
+
+.frnotif.red,
+.msgnotif.red
+{
+    color: red;
+    cursor: pointer;
+}
+
+li.frnotifli {
+    position: relative;
+    display: block;
+    padding: 10px;
+}
+ul#frnotiful {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    background: black;
+    width: 300px;
+}
+li.frcountli img {
+    width: 50px;
+}
+li.frcountli {
+    position: relative;
+    top: 15px;
+}
+span.msgnotif {
+    color: white;
+    position: relative;
+    top: 15px;
+    margin-left: 10px;
+    
+}
+ul#msgnotiful {
+    position: absolute;
+    right: 0;
+    top:60px;
+    background: black;
+    width: 300px;            
+}
+
+li.msgnotifli img {
+    width: 50px;
+}
+
+li.msgnotifli {
+    color: white;
+}
+
+.sendmsgparent {
+    width: 400px;
+    margin: 30px;
+    margin-left: 0;
+}
+
+.wall textarea {
+    width: 400px;
+    height: 100px;
+    padding: 10px;
+    border: 2px solid green;
+     
+}
+
+.ta,
+.ta:hover,
+.ta:focus {
+    display: block;
+    background-color: green;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    width: 200px;
+}
+
+.wall img{
+    width:50px;
+}
+body > .chatbox {
+    position: absolute;
+    left: -3000px;
+}
+.chat {
+    position: fixed;
+    bottom: 0;
+    right: 30px;
+}
+.chat ul li {
+    cursor: pointer;
+    margin: 5px;
+    list-style: none;
+}
+.chat ul li img {
+    width: 30px;
+    margin: 5px;
+}
+.chatboxholder {
+    position:fixed;
+    bottom: 0;
+    right: 130px;
+    width: 100%;
+    height: 50px;
+}
+.chatbox {
+    width: 300px;
+    height: 400px;
+    background: black;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.chatbox h4 {
+    position: absolute;
+    top: -42px;
+    left: 0;
+    z-index: 5;
+    background: black;
+    width: 100%;
+    padding: 5px;
+}
+.chatbox img {
+    width: 30px !important;
+}
+.chatboxtext {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    left: 0;
+    background: white;
+    width: 90%;
+    height: 270px;
+    z-index: 1;
+    margin: 0 auto;
+    max-height: 270px;
+    overflow: scroll;
+    padding: 30px;
+}
+.chattextarea {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 40px;
+    width: 90%;
+    height: 60px;
+    padding: 10px;
+}
+a.sendchat {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+.chatboxtext img {
+    margin-top: 10px;
+}
+.chat ul li.msg {
+    background: green;
+    color: white;
+}
+
+li.frndlistli {
+    position: relative;
+    display: block;
+    padding: 0px;
+    
+}
+.frndlist {
+    color: white;
+}

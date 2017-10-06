@@ -1,0 +1,165 @@
+﻿@model FacebookClone.Models.ViewModels.Account.UserVM
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Facebook Clone</title>
+  @Styles.Render("~/Content/css")
+  <style>
+    
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+
+  <div class="navbar navbar-inverse">
+    <div class="container">
+
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li>@Html.Action("LoginPartial","Account")</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-12">
+
+
+      @using (Html.BeginForm("CreateAccount","Account",FormMethod.Post,new {enctype = "multipart/form-data"}))
+      {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+          @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+          <div class="form-group">
+            <label class="control-label col-md-2" for="FirstName">First Name</label>
+            <div class="col-md-10">
+              @Html.EditorFor(model => model.FirstName, new {htmlAttributes = new {@class = "form-control"}})
+              @Html.ValidationMessageFor(model => model.FirstName, "", new {@class = "text-danger"})
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-2" for="LastName">Last Name</label>
+            <div class="col-md-10">
+              @Html.EditorFor(model => model.LastName, new {htmlAttributes = new {@class = "form-control"}})
+              @Html.ValidationMessageFor(model => model.LastName, "", new {@class = "text-danger"})
+            </div>
+          </div>
+
+          <div class="form-group">
+           
+            <label class="control-label col-md-2" for="EmailAddress">Email Address</label>
+
+            
+            <div class="col-md-10">
+              @Html.EditorFor(model => model.EmailAddress, new {htmlAttributes = new {@class = "form-control"}})
+              @Html.ValidationMessageFor(model => model.EmailAddress, "", new {@class = "text-danger"})
+            </div>
+          </div>
+
+          <div class="form-group">
+       
+            <label class="control-label col-md-2" for="UserName">User Name</label>
+
+            <div class="col-md-10">
+              @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+              @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-2" for="Password">Password</label>
+
+            <div class="col-md-10">
+              @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+              @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+          </div>
+              
+          <div class="form-group">
+            <label class="control-label col-md-2" >Upload Image</label>
+
+            <div class="col-md-10">
+              <input type="file" name="file" id="ImageUpload"/>
+              <img id="imgpreview" src="#"/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+              <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+          </div>
+        </div>
+      }
+
+    </div>
+  </div>
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<script>
+  $(document).ready(function() {
+
+    //Login User
+    $("form.loginform").submit(function(e) {
+      e.preventDefault();
+      var $this = $(this);
+
+      $this.find(".ajaxdiv").removeClass("hide");
+
+      var userName = $("#Username").val();
+      var Password = $("#Password").val();
+      var url = "/account/Login";
+
+
+      $.post(url,
+        { username: userName, password: Password },
+        function(data) {
+          var response = data.trim();
+          if (response == "OK") {
+            document.location.href = "/";
+          } else {
+            $this.find(".ajaxdiv").addClass("hide");
+            $("div.em").fadeIn("fast");
+            setTimeout(function() {
+              $("div.em").fadeOut("fast");
+            },2000);
+          }
+        });
+    });
+
+    //Preview selected image
+    function readUrl(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          $("img#imgpreview")
+            .attr("src", e.target.result)
+            .width(200)
+            .height(200);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }//End readUrl
+
+
+    $("#ImageUpload").change(function() {
+      readUrl(this);
+    });
+  });//End ready
+</script>
+</body>
+</html>
